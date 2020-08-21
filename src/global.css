@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Ubuntu&display=swap");
+:root {
+  font-size: 60%;
+  --primary-color: #4c4fd9;
+  --background-color: #f1f1f1;
+  --text-light: #ffffff;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+}
+h2,
+p {
+  font-family: "Ubuntu", sans-serif;
+}
+
+body,
+input,
+textarea {
+  margin: 0;
+  font: 400 1.6rem "Montserrat";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font: 400 1.6rem "Montserrat";
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
