@@ -2,9 +2,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Ubuntu&display=swap");
 :root {
   font-size: 60%;
-  --primary-color: #4c4fd9;
+  --primary-color: #ee4637;
   --background-color: #f1f1f1;
-  --text-light: #ffffff;
+  --primary-color-light: #fd5f51;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  text-decoration: none;
 }
 
 h1 {
@@ -19,7 +28,7 @@ body,
 input,
 textarea {
   margin: 0;
-  font: 400 1.6rem "Montserrat";
+  font: 400 1.6rem Poppins;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -33,4 +42,11 @@ code {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+}
+
+.container {
+  width: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

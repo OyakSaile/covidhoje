@@ -1,0 +1,84 @@
+bodY {
+  background: #f1f1f1;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* #container-content {
+  width: 100%;
+  height: 100%;
+} */
+
+.logo {
+  margin-top: 1rem;
+}
+
+.logo img {
+  width: 100%;
+  height: 4rem;
+}
+
+.logo h2 {
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 400;
+  font-family: Ubuntu;
+}
+
+.hero-image {
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.hero-image img {
+  width: 85%;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.2rem;
+}
+
+#see {
+  border-radius: 3.2rem;
+  padding: 2.2rem;
+  width: 15rem;
+  background: var(--primary-color);
+  color: white;
+  border: 0;
+  font-size: 2rem;
+}
+
+#howto {
+  text-decoration: none;
+  color: #000000;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.buttons-container a:first-child {
+  margin-right: 3.2rem;
+}
+
+#see:hover {
+  background: var(--primary-color-light);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#howto:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer {
+  margin-top: 3.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
