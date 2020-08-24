@@ -2,7 +2,8 @@ import React from "react";
 import logoImg from "../../assets/icons/covidhoje.svg";
 import heroImg from "../../assets/illustrations/home-image.png";
 import gitIcon from "../../assets/icons/github.svg";
-import "./index.css";
+import "./styles.css";
+import { Link } from "react-router-dom";
 function Homepage() {
   return (
     <div className="container" id="container-id">
@@ -19,18 +20,18 @@ function Homepage() {
         </div>
 
         <div className="buttons-container">
-          <a href="">
+          <Link to="/statistics">
             <button id="see">Acompanhe</button>
-          </a>
-          <a href="">
+          </Link>
+          <Link to="">
             <p id="howto">como se prevenir</p>
-          </a>
+          </Link>
         </div>
 
         <div className="footer">
-          <a href="">
+          <Link to="">
             <img src={gitIcon} alt="" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

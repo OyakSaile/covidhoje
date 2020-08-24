@@ -5,6 +5,8 @@
   --primary-color: #ee4637;
   --background-color: #f1f1f1;
   --primary-color-light: #fd5f51;
+  --shadow-news-box-container: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --shadow-news-box-text: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 * {
   margin: 0;
