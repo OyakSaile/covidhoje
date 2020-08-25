@@ -43,7 +43,7 @@ bodY {
 #see {
   border-radius: 3.2rem;
   padding: 2.2rem;
-  width: 15rem;
+  width: 20rem;
   background: var(--primary-color);
   color: white;
   border: 0;
@@ -103,23 +103,29 @@ bodY {
   }
   .texto-2 {
     width: 100%;
-  }
-  .texto-2 h2 {
-    font-size: 1.7rem;
+    text-align: center;
   }
 
   .hero-image {
     grid-area: image;
+    align-items: center;
+    justify-content: center;
   }
   .buttons-container {
     grid-area: buttons;
-    flex-direction: column;
+    /* flex-direction: column; */
+    margin: 0;
+    align-items: center;
+    justify-content: center;
   }
+
   .buttons-container a:first-child {
-    margin-bottom: 4rem;
   }
 
   #see {
     width: 25rem;
+  }
+  .footer {
+    margin: 0;
   }
 }
