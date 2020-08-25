@@ -1,7 +1,7 @@
 import { BrowserRouter, Route } from "react-router-dom";
 
 import React from "react";
-import Homepage from "./pages/Homepage";
+import Homepage from "./pages/homepage";
 import Statistics from "./pages/Statistics";
 
 function Routes() {
