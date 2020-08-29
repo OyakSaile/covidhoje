@@ -29,9 +29,9 @@ function Homepage() {
         </div>
 
         <div className="footer">
-          <Link to="">
+          <a href="https://github.com/NegriHenrique/covidhoje" target="_blank">
             <img src={gitIcon} alt="" />
-          </Link>
+          </a>
         </div>
       </div>
     </div>

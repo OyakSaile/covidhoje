@@ -33,7 +33,6 @@ function Statistics() {
           <img src={MapIcon} alt="Icone de mapa" />
         </header>
         <main>
-          {/* aqui vai o mapa */}
           <div className="world-map">
             <span>World Map</span>
             <img src={WorldMapIcon} alt="Mapa mundo" />
@@ -47,7 +46,7 @@ function Statistics() {
         <main>
           <ul className="news-container">
             <li>
-              <Link href="/" target="_blank">
+              <Link to="/newspage" >
                 <img src={NewsIcon} alt="noticias" />
                 <div>
                   <span>Last News</span>
