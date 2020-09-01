@@ -47,11 +47,12 @@ function Statistics() {
   function filter(value) {
     setTimeout(() => {
       if (value.length > 0) {
+        console.log(countries);
         return setFilteredCountries(
-          countries.filter((country) =>
-            country.country
-              .toLowerCase()
-              .includes(value.toLowerCase() && country.countryInfo._id)
+          countries.filter(
+            (country) =>
+              country.country.toLowerCase().includes(value.toLowerCase()) &&
+              country.countryInfo._id
           )
         );
       }
