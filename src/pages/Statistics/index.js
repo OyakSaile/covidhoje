@@ -52,7 +52,7 @@ function Statistics() {
           countries.filter(
             (country) =>
               country.country.toLowerCase().includes(value.toLowerCase()) &&
-              country.countryInfo._id
+              country.country !== "Diamond Princess"
           )
         );
       }

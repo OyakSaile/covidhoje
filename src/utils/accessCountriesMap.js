@@ -1,7 +1,8 @@
 const accessCountriesMap = [
   "Brazil",
   "India",
-  "US",
+  "USA",
+  "Italy",
   "Colombia",
   "Peru",
   "Argentina",
