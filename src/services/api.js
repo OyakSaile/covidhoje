@@ -1,5 +1,7 @@
 import axios from "axios";
 
-return axios.create({
+const api = axios.create({
   baseURL: "https://disease.sh/v3/covid-19/",
 });
+
+export default api;
