@@ -46,7 +46,7 @@ function Statistics() {
         <main>
           <ul className="news-container">
             <li>
-              <Link to="/newspage" >
+              <Link to="/newspage">
                 <img src={NewsIcon} alt="noticias" />
                 <div>
                   <span>Last News</span>
@@ -70,7 +70,7 @@ function Statistics() {
               </Link>
             </li>
             <li>
-              <a href="#" target="_blank">
+              <a href="/" target="_blank">
                 <img src={VaccineIcon} alt="noticias" />
                 <div>
                   <span>Last News</span>
