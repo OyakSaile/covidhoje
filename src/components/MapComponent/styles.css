@@ -1,0 +1,35 @@
+.marker-popup {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.marker-popup header {
+  font-size: 2.5rem;
+  color: var(--popup-map-text);
+  border-bottom: 1px solid var(--popup-map-border-header);
+  margin-bottom: 10px !important;
+  display: flex;
+  align-items: baseline !important;
+  justify-content: flex-start !important;
+}
+
+.marker-popup header img {
+  height: 1.8rem;
+  margin-right: 7px;
+}
+
+.marker-popup main {
+  flex-direction: column;
+  height: auto !important;
+  color: var(--popup-map-text);
+}
+
+.marker-popup main p {
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 1.6rem;
+}
+
+.marker-popup main p strong {
+  margin-right: 5px;
+}
