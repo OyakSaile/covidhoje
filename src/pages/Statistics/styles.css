@@ -66,6 +66,9 @@
   width: 100%;
   height: 300px;
 }
+.mapHeight {
+  height: 300px;
+}
 
 #statistics-page section.map main .world-map-container {
   height: 100%;
@@ -119,11 +122,13 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
+  padding: 3rem 0 0 0;
 }
 
 #statistics-page section.news main ul.news-container li a img {
   flex: 1;
   height: 5.4rem;
+  margin-bottom: 2rem;
 }
 
 #statistics-page section.news main ul.news-container li div {
@@ -182,5 +187,17 @@
   #statistics-page .statistics-container {
     max-width: 900px;
     margin: 0 auto;
+  }
+
+  #statistics-page section.news main ul.news-container {
+    grid-gap: 3.5rem 10rem;
+  }
+
+  #statistics-page section.map main {
+    height: 600px;
+  }
+
+  .mapHeight {
+    height: 600px;
   }
 }

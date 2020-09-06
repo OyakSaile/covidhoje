@@ -1,16 +1,23 @@
 import React from "react";
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import { Map, Popup, TileLayer, Circle } from "react-leaflet";
 import "./styles.css";
+import accessCountriesMap from "../../utils/accessCountriesMap";
 
 const MapComponent = (props) => {
   return (
-    <Map center={[-10, -55]} zoom={2}>
+    <Map
+      className="mapHeight"
+      center={[0, -30]}
+      zoom={3}
+      tap={true}
+      animate={true}
+    >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       {props.markers &&
-        props.markers.map((marker) => {
+        props.markers.map((marker, index) => {
           const {
             countryInfo,
             country,
@@ -22,9 +29,16 @@ const MapComponent = (props) => {
             todayRecovered,
           } = marker;
           return (
-            <Marker
-              key={countryInfo._id}
-              position={[countryInfo.lat, countryInfo.long]}
+            <Circle
+              key={index}
+              center={[countryInfo.lat, countryInfo.long]}
+              fillColor={"red"}
+              radius={
+                accessCountriesMap.includes(country)
+                  ? Number(cases) * 0.3
+                  : Number(cases)
+              }
+              color={"red"}
             >
               <Popup>
                 <div className="marker-popup">
@@ -35,44 +49,44 @@ const MapComponent = (props) => {
                   <main>
                     <p>
                       <strong>Casos:</strong>
-                      {new Intl.NumberFormat("br", {
+                      {Intl.NumberFormat("br", {
                         useGrouping: true,
                       }).format(Number(cases))}
                     </p>
                     <p>
                       <strong>Casos Hoje:</strong>
-                      {new Intl.NumberFormat("br", {
+                      {Intl.NumberFormat("br", {
                         useGrouping: true,
                       }).format(Number(todayCases))}
                     </p>
                     <p>
                       <strong>Mortes:</strong>
-                      {new Intl.NumberFormat("br", {
+                      {Intl.NumberFormat("br", {
                         useGrouping: true,
                       }).format(Number(deaths))}
                     </p>
                     <p>
                       <strong>Mortes Hoje:</strong>
-                      {new Intl.NumberFormat("br", {
+                      {Intl.NumberFormat("br", {
                         useGrouping: true,
                       }).format(Number(todayDeaths))}
                     </p>
                     <p>
                       <strong>Recuperados:</strong>
-                      {new Intl.NumberFormat("br", {
+                      {Intl.NumberFormat("br", {
                         useGrouping: true,
                       }).format(Number(recovered))}
                     </p>
                     <p>
                       <strong>Recuperados Hoje:</strong>
-                      {new Intl.NumberFormat("br", {
+                      {Intl.NumberFormat("br", {
                         useGrouping: true,
                       }).format(Number(todayRecovered))}
                     </p>
                   </main>
                 </div>
               </Popup>
-            </Marker>
+            </Circle>
           );
         })}
     </Map>
