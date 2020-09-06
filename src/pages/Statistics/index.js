@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Link, useHistory } from "react-router-dom";
 import api from "../../services/api";
-import accessCountriesMap from "../../utils/accessCountriesMap";
 
 import "./styles.css";
-
-import ListAllCountries from "../../components/ListAllCountries";
-import MapComponent from "../../components/MapComponent";
 
 import ArrowLeftIcon from "../../assets/icons/left-arrow.svg";
 import MapIcon from "../../assets/icons/map.svg";
@@ -17,10 +13,15 @@ import VirusIcon from "../../assets/icons/virus.svg";
 import SeatchIcon from "../../assets/icons/searchIcon.svg";
 import VaccineIcon from "../../assets/icons/vaccine.svg";
 
+const ListAllCountries = React.lazy(() =>
+  import("../../components/ListAllCountries")
+);
+
+const MapComponent = React.lazy(() => import("../../components/MapComponent"));
+
 function Statistics() {
   const history = useHistory();
   const [countries, setCountries] = useState([]);
-  const [mapCountries, setMapCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
 
   function voltarInicio() {
@@ -29,16 +30,10 @@ function Statistics() {
 
   useEffect(() => {
     async function loadCountries() {
-      const response = await api.get("countries");
+      const response = await api.get("countries?sort=cases");
 
       setCountries(response.data);
       setFilteredCountries(response.data);
-
-      setMapCountries(
-        response.data.filter((item) =>
-          accessCountriesMap.includes(item.country)
-        )
-      );
     }
 
     loadCountries();
@@ -78,7 +73,9 @@ function Statistics() {
           </header>
           <main>
             <div className="world-map-container">
-              <MapComponent markers={mapCountries} />
+              <Suspense fallback={"<div>Carregando mapa...</div>"}>
+                <MapComponent markers={countries} />
+              </Suspense>
             </div>
             <div className="world-map-text">
               <span>World Map</span>
@@ -101,7 +98,7 @@ function Statistics() {
                 </Link>
               </li>
               <li>
-                <Link href="/" target="_blank">
+                <Link href="/newspage" target="_blank">
                   <img src={GovIcon} alt="noticias" />
                   <div>
                     <span>Last News</span>
@@ -109,7 +106,7 @@ function Statistics() {
                 </Link>
               </li>
               <li>
-                <Link to="/" target="_blank">
+                <Link to="/newspage" target="_blank">
                   <img src={VirusIcon} alt="noticias" />
                   <div>
                     <span>Last News</span>
@@ -117,12 +114,12 @@ function Statistics() {
                 </Link>
               </li>
               <li>
-                <a href="#" target="_blank">
+                <Link to="/newspage" target="_blank">
                   <img src={VaccineIcon} alt="noticias" />
                   <div>
                     <span>Last News</span>
                   </div>
-                </a>
+                </Link>
               </li>
             </ul>
           </main>
@@ -136,8 +133,9 @@ function Statistics() {
             />
             <img src={SeatchIcon} className="icon" alt="lupa de busca" />
           </div>
-
-          <ListAllCountries countries={filteredCountries} />
+          <Suspense fallback={"<div>Carregando países...</div>"}>
+            <ListAllCountries countries={filteredCountries} />
+          </Suspense>
         </section>
       </div>
     </main>

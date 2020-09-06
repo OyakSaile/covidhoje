@@ -1,78 +1,153 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./styles.css";
 
-function ListAllCountries({ countries }) {
-  const [text, setText] = useState("Carregando países.");
+import Lazyload from "react-lazyload";
 
-  useEffect(() => {
-    setText("Nenhum país encontrado.");
-  }, []);
+function ListAllCountries({ countries }) {
+  const text = "Nenhum país encontrado.";
+
   return (
     <ul className="countries">
       {countries.length > 0 ? (
         countries.map((country) => (
-          <li key={country.countryInfo._id}>
-            <h3 className="title">
-              <img src={country.countryInfo.flag} alt="bandeira do pais" />
-              {country.country}
-            </h3>
-            <div className="country-info">
-              <div className="info">
-                <p>Infectados</p> <strong>{country.cases}</strong>
+          <Lazyload key={country.countryInfo._id}>
+            <li>
+              <h3 className="title">
+                <img src={country.countryInfo.flag} alt="bandeira do pais" />
+                {country.country}
+              </h3>
+              <div className="country-info">
+                <div className="info">
+                  <p>Infectados</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.cases))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Infectados Hoje</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.todayCases))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Mortos</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.deaths))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Mortes Hoje</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.todayDeaths))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Curados</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.recovered))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Curados Hoje</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.todayRecovered))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Ativos</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.active))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Estado Crítico</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.critical))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Casos/Milhão</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.casesPerOneMillion))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Mortes/Milhão</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.deathsPerOneMillion))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Testes</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.tests))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Testes/Milhão</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.testsPerOneMillion))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>População</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.population))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Ativos/Milhão</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.activePerOneMillion))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Recuperados/Milhão</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.recoveredPerOneMillion))}
+                  </strong>
+                </div>
+                <div className="info">
+                  <p>Estado Crítico/Milhão</p>{" "}
+                  <strong>
+                    {Intl.NumberFormat("br", {
+                      useGrouping: true,
+                    }).format(Number(country.criticalPerOneMillion))}
+                  </strong>
+                </div>
               </div>
-              <div className="info">
-                <p>Infectados Hoje</p> <strong>{country.todayCases}</strong>
-              </div>
-              <div className="info">
-                <p>Mortos</p> <strong>{country.deaths}</strong>
-              </div>
-              <div className="info">
-                <p>Mortes Hoje</p> <strong>{country.todayDeaths}</strong>
-              </div>
-              <div className="info">
-                <p>Curados</p> <strong>{country.recovered}</strong>
-              </div>
-              <div className="info">
-                <p>Curados Hoje</p> <strong>{country.todayRecovered}</strong>
-              </div>
-              <div className="info">
-                <p>Ativos</p> <strong>{country.active}</strong>
-              </div>
-              <div className="info">
-                <p>Estado Crítico</p> <strong>{country.critical}</strong>
-              </div>
-              <div className="info">
-                <p>Casos/Milhão</p>{" "}
-                <strong>{country.casesPerOneMillion}</strong>
-              </div>
-              <div className="info">
-                <p>Mortes/Milhão</p>{" "}
-                <strong>{country.deathsPerOneMillion}</strong>
-              </div>
-              <div className="info">
-                <p>Testes</p> <strong>{country.tests}</strong>
-              </div>
-              <div className="info">
-                <p>Testes/Milhão</p>{" "}
-                <strong>{country.testsPerOneMillion}</strong>
-              </div>
-              <div className="info">
-                <p>População</p> <strong>{country.population}</strong>
-              </div>
-              <div className="info">
-                <p>Ativos/Milhão</p>{" "}
-                <strong>{country.activePerOneMillion}</strong>
-              </div>
-              <div className="info">
-                <p>Recuperados/Milhão</p>{" "}
-                <strong>{country.recoveredPerOneMillion}</strong>
-              </div>
-              <div className="info">
-                <p>Estado Crítico/Milhão</p>{" "}
-                <strong>{country.criticalPerOneMillion}</strong>
-              </div>
-            </div>
-          </li>
+            </li>
+          </Lazyload>
         ))
       ) : (
         <li>
