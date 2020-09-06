@@ -35,40 +35,47 @@ function NewsPage() {
         <h1 id="lastnews">Últimas notícias sobre o novo corona-virus.</h1>
       </div>
       <div className="main">
-        <div className="status-main">
-          <h2>Veja o Status atual do novo corona-virus.</h2>
-          <span id="virus">
-            <img src={virusImg} alt="" srcset="" />
-          </span>
-        </div>
-
-        <div className="status-info">
-          <ul>
-            <li>
-              <strong>Casos</strong> {cases}
-            </li>
-            <li>
-              <strong>Casos ativos: </strong> {active}
-            </li>
-            <li>
-              <strong>Casos Recuperados: </strong>
-              {recovered}
-            </li>
-            <li>
-              <strong>Mortes pelo novo corona-virus: </strong>
-              {deaths}
-            </li>
-            <li>
-              <strong>Países afetados: </strong>
-              {affectedCountries}
-            </li>
-          </ul>
-        </div>
-        <div className="nav">
-          <a href="">Vacina</a>
-          <a href="">Governo</a>
-          <a href="">Covid</a>
-        </div>
+        <header>
+          <div className="status-main">
+            <h2>Veja o Status atual do novo corona-virus.</h2>
+            <span id="virus">
+              <img src={virusImg} alt="" srcset="" />
+            </span>
+          </div>
+        </header>
+        <main>
+          <div className="status-info">
+            <main>
+              <ul>
+                <li>
+                  <strong>Casos</strong> {cases}
+                </li>
+                <li>
+                  <strong>Casos ativos: </strong> {active}
+                </li>
+                <li>
+                  <strong>Casos Recuperados: </strong>
+                  {recovered}
+                </li>
+                <li>
+                  <strong>Mortes pelo novo corona-virus: </strong>
+                  {deaths}
+                </li>
+                <li>
+                  <strong>Países afetados: </strong>
+                  {affectedCountries}
+                </li>
+              </ul>
+            </main>
+          </div>
+        </main>
+        <nav>
+          <div className="nav">
+            <a href="">Vacina</a>
+            <a href="">Governo</a>
+            <a href="">Covid</a>
+          </div>
+        </nav>
       </div>
     </div>
   );
